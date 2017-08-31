@@ -4,6 +4,7 @@
   "description": "Vue replacements for common form elements",
   "author": "Mark Parson <mark@nanobox.io>",
   "private": true,
+  "main": "dist/build.js",
   "scripts": {
     "dev": "node webpack/dev-server.js",
     "dist": "node webpack/build.js"
