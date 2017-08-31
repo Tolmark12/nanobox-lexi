@@ -15,7 +15,9 @@ module.exports = merge(baseWebpackConfig, {
   output: {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '../dist/',
-    filename: 'build.js'
+    filename: 'build.js',
+    library: 'lexi',
+    libraryTarget: 'umd'
   },
   // Any external libraries you want to use, but not include in the built source:
   externals: [
@@ -28,10 +30,10 @@ module.exports = merge(baseWebpackConfig, {
         NODE_ENV: '"production"'
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false
+    //   }
+    // })
   ]
 })
