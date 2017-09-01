@@ -19,17 +19,12 @@ module.exports = merge(baseWebpackConfig, {
     library: 'lexi',
     libraryTarget: 'umd'
   },
-  // Any external libraries you want to use, but not include in the built source:
-  externals: [
-    'lodash', 'vue'
-  ],
   // optimization of final code :
   plugins:[
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
+      'process.env': { NODE_ENV: JSON.stringify('production') }
     }),
+    // While debugging, disabling uglify
     // new webpack.optimize.UglifyJsPlugin({
     //   compress: {
     //     warnings: false
