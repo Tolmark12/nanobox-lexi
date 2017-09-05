@@ -144,10 +144,10 @@ export default {
 
     .drop-content              {user-select: none; background:white; position: fixed; left: 20px; @include drop-shadow(0, 1px, 6px, #AAA); z-index: 1000; opacity:0;
       .checkmark               {display:none; }
-      .label, .option          {border-bottom: solid #F1EFEF 1px; padding: 4px 16px 4px 22px; display: relative;
+      .label, .option          {border-bottom: solid #F1EFEF 1px; padding: 4px 16px 4px 22px;
         .checkmark             {display:block; position:absolute; left:6px; top:3px;  }
       }
-      .label                   {color:#B5BFC7; font-size:12px; padding-left:14px;  }
+      .label                   {color:#B5BFC7; font-size:12px; padding-left:14px; width:100%; }
       .option                  {position:relative; color: $azul2; font-weight:$semibold; font-size: 16px; font-style: italic; cursor:pointer;
         &.hover                {background: $azul2; color: white;
           &.checked:before     {border-color:white; }

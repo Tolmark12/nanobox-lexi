@@ -25,10 +25,10 @@ module.exports = merge(baseWebpackConfig, {
       'process.env': { NODE_ENV: JSON.stringify('production') }
     }),
     // While debugging, disabling uglify
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     warnings: false
-    //   }
-    // })
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
   ]
 })
