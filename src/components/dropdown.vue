@@ -11,12 +11,17 @@ export default {
   },
   mounted(){
     let $default;
-    if(this.default === undefined)
-      $default = this.$refs['content'].firstChild
-    else
+    if(this.default === undefined){
+      let $options = this.$refs['content'].querySelectorAll('[class="option"]')
+      if( $options.length == 0 )
+        $default == null
+      else
+        $default = $options[0]
+    }else
       $default = this.$refs['content'].querySelectorAll('[value="' + this.default + '"]')[0]
 
-    this.activateItem($default)
+    if( $default != null)
+      this.activateItem($default)
   },
   methods: {
 
