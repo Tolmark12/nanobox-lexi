@@ -1,30 +1,14 @@
 <script type="text/babel">
 export default {
   name: 'dropdown',
-  props: ['active-item', 'default'],
+  props: ['active-item', 'default', 'value'],
   data() {
     return {
       isOpen        : false,
-      activeItemId  : "",
-      activeItemTxt : ""
     }
   },
-  mounted(){
-    let $default;
-    if(this.default === undefined){
-      let $options = this.$refs['content'].querySelectorAll('[class="option"]')
-      if( $options.length == 0 )
-        $default == null
-      else
-        $default = $options[0]
-    }else
-      $default = this.$refs['content'].querySelectorAll('[value="' + this.default + '"]')[0]
 
-    if( $default != null)
-      this.activateItem($default)
-  },
   methods: {
-
     // ------------------------------------ Events
     onMouseDown() {
       this.openTime = Date.now()
@@ -39,31 +23,36 @@ export default {
 
       // If mouseup occurred over a dropdown option
       if(e.target.classList.contains('option')){
-        this.activateItem(e.target)
-        this.$emit( 'changed', this.activeItemId )
+        this.$emit('input', e.target.getAttribute('value'))
+        this.$emit('changed', e.target.getAttribute('value'))
       }
 
       this.removeItemHovers()
       this.closeDropDown()
       window.removeEventListener('mouseup', this.onMouseUp)
     },
-    // ------------------------------------ Activate an item
-    activateItem($item) {
+
+    // ------------------------------------ Add a check to an item
+
+    checkItemById(val) {
+      let $item = this.$refs['content'].querySelector(`.option[value="${val}"]`)
+      if($item == null)
+        return
+
       // If an item is already checked, uncheck it
       let currentCheckedItem = this.$refs['content'].getElementsByClassName('checked')
       if( currentCheckedItem.length > 0)
         currentCheckedItem[0].classList.remove('checked')
 
       $item.classList.add("checked")
-      this.activeItemTxt = $item.textContent
-      this.activeItemId  = $item.getAttribute('value')
     },
+
     // ------------------------------------  Open / Close Dropdown
+
     openDropDown() {
       this.isOpen = true
-      if(this.isOpen)
-        // Slight timeout so that the dropdown element will be measurable
-        setTimeout(this.sizeAndPositionDropdown, 5)
+      // Slight timeout so that the dropdown element will be measurable
+      setTimeout(this.sizeAndPositionDropdown, 5)
     },
     closeDropDown() {
       this.isOpen = false
@@ -117,6 +106,37 @@ export default {
         newEl.classList.remove("hover")
       }
     },
+
+    // Get the text from an option by id.
+    // Seems pretty intense.. is there a better way?
+    getItemText(val) {
+      let txt = ""
+      // Look at the content of the vue slots.
+      for ( let item of this.$slots.default ){
+        // if data is defined..
+        if( item.data != null){
+          // and if attrs is defined..
+          if(item.data.attrs != null){
+            // and if the value attr matches the new val..
+            if( item.data.attrs.value == val ){
+              txt = item.children[0].text
+            }
+          }
+        }
+      }
+      return txt
+    }
+  },
+
+  // If the selected value changes, update which item is checked
+  watch:{
+    value(val) {
+      this.checkItemById(val)
+    }
+  },
+  // On mount, check the active item
+  mounted(){
+    this.checkItemById(this.value)
   }
 }
 </script>
@@ -128,7 +148,7 @@ export default {
 <template lang="pug">
   .lexi.drop-down
     .trigger(v-on:mousedown="onMouseDown" ref="trigger" )
-      .txt {{ activeItemTxt }}
+      .txt {{ getItemText(value) }}
     .drop-content(v-show="isOpen" ref="content")
       slot name="options"
 </template>
