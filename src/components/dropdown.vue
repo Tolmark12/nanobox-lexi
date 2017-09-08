@@ -109,6 +109,7 @@ export default {
 
     // Get the text from an option by id.
     // Seems pretty intense.. is there a better way?
+    // maybe see : https://forum.vuejs.org/t/how-to-properly-access-components-inside-slot-content/4713
     getItemText(val) {
       let txt = ""
       // Look at the content of the vue slots.
