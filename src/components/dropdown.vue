@@ -4,7 +4,8 @@ export default {
   props: ['active-item', 'default', 'value'],
   data() {
     return {
-      isOpen        : false,
+      isOpen : false,
+      currentItemHasBeenChecked: false
     }
   },
 
@@ -14,8 +15,8 @@ export default {
       this.openTime = Date.now()
       this.openDropDown()
       window.addEventListener('mouseup', this.onMouseUp)
-      this.addItemHovers()
     },
+
     onMouseUp(e) {
       // Allow 1/3 of a second after the mousepress in case
       // they're single clicking to open the dropdown
@@ -34,8 +35,9 @@ export default {
 
     // ------------------------------------ Add a check to an item
 
-    checkItemById(val) {
-      let $item = this.$refs['content'].querySelector(`.option[value="${val}"]`)
+    checkItemById() {
+      this.currentItemHasBeenChecked = true
+      let $item = this.$refs['content'].querySelector(`.option[value="${this.value}"]`)
       if($item == null)
         return
 
@@ -54,12 +56,15 @@ export default {
       // Slight timeout so that the dropdown element will be measurable
       setTimeout(this.sizeAndPositionDropdown, 5)
     },
+
     closeDropDown() {
       this.isOpen = false
     },
 
     // ------------------------------------ Position the dropdown over the trigger
     sizeAndPositionDropdown () {
+      this.addItemHovers() // Add hover listeners
+      this.checkItemById() // check the current item
       let top
       let $content = this.$refs['content']
       let $trigger = this.$refs['trigger']
@@ -128,17 +133,6 @@ export default {
       return txt
     }
   },
-
-  // If the selected value changes, update which item is checked
-  watch:{
-    value(val) {
-      this.checkItemById(val)
-    }
-  },
-  // On mount, check the active item
-  mounted(){
-    this.checkItemById(this.value)
-  }
 }
 </script>
 
@@ -150,8 +144,8 @@ export default {
   .lexi.drop-down
     .trigger(v-on:mousedown="onMouseDown" ref="trigger" )
       .txt {{ getItemText(value) }}
-    .drop-content(v-show="isOpen" ref="content")
-      slot name="options"
+    .drop-content(v-if="isOpen" ref="content")
+      slot
 </template>
 
 <!--
