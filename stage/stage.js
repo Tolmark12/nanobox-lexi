@@ -7,7 +7,16 @@ Vue.config.productionTip = false;
 
 let template = `
 <div>
-  <dropdown v-model="myVal" @changed="onDropDownChange">
+  <errors :errors="errors" />
+  <dropdown v-model="dropDownTestVal" @changed="onDropDownChange">
+    <div class="label">Send emails:</div>
+    <div v-if="showIt" class="option" value="email"> Send email to :</div>
+    <div class="option" value="text"> Send text to :</div>
+    <div class="option" value="email-collaborators"> Send email to all collaborators</div>
+  </dropdown>
+  <checkbox label="I am a checkbox" label-is-after="true" is-checked="true" @changed="onCheckboxCheck" id="my id" />
+  <save-section @save="onSave" @cancel="onCancel"/>
+  <dropdown v-model="dropDownTestVal2" >
     <div class="label">Send emails:</div>
     <div v-if="showIt" class="option" value="email"> Send email to :</div>
     <div class="option" value="text"> Send text to :</div>
@@ -16,9 +25,10 @@ let template = `
 </div>
 `
 window.tempObj = {
-  myVal:'text',
-  errors:null,
-  showIt:false
+  dropDownTestVal  : 'text',
+  dropDownTestVal2 : 'text',
+  errors           : null,
+  showIt           : false
 }
 
 new Vue({
