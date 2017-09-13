@@ -22,11 +22,19 @@ let template = `
     <div class="option" value="text"> Send text to :</div>
     <div class="option" value="email-collaborators"> Send email to all collaborators</div>
   </dropdown>
+  <dropdown v-model="dropDownTestVal3" >
+    <div class="option" value="asdf"> ASDF</div>
+    <div class="label">Send emails:</div>
+    <div v-if="showIt" class="option" value="email"> Send email to :</div>
+    <div class="option" value="text"> Send text to :</div>
+    <div class="option" value="email-collaborators"> Send email to all collaborators</div>
+  </dropdown>
 </div>
 `
 window.tempObj = {
   dropDownTestVal  : 'text',
   dropDownTestVal2 : 'text',
+  dropDownTestVal3 : 'text',
   errors           : null,
   showIt           : false
 }

@@ -22,10 +22,12 @@ export default {
       // they're single clicking to open the dropdown
       if(Date.now() - this.openTime < 325) return;
 
-      // If mouseup occurred over a dropdown option
-      if(e.target.classList.contains('option')){
-        this.$emit('input', e.target.getAttribute('value'))
-        this.$emit('changed', e.target.getAttribute('value'))
+      // If mouseup occurred over a child dropdown option
+      if( this.$el.contains(e.target) ){
+        if( e.target.classList.contains('option') ){
+          this.$emit('input', e.target.getAttribute('value'))
+          this.$emit('changed', e.target.getAttribute('value'))
+        }
       }
 
       this.removeItemHovers()
