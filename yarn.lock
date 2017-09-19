@@ -4169,8 +4169,8 @@ sha.js@^2.4.0, sha.js@^2.4.8:
     inherits "^2.0.1"
 
 shadow-icons@Tolmark12/shadow-icons-js:
-  version "0.1.0"
-  resolved "https://codeload.github.com/Tolmark12/shadow-icons-js/tar.gz/509563bc8148d93788025017f088094052857ec0"
+  version "0.2.0"
+  resolved "https://codeload.github.com/Tolmark12/shadow-icons-js/tar.gz/4d94f99ee78e1c112f358233f0daadb33cb22850"
 
 shebang-command@^1.2.0:
   version "1.2.0"

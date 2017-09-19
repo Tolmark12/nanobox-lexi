@@ -1,6 +1,9 @@
 require('../lib/assets/core-styles/scss/_base.scss')
+// let x = require('script-loader!shadow-icons/rel/app.js')
+require("script-loader!../node_modules/shadow-icons/rel/app.js")
 
-import {dropdown, checkbox, saveSection, errors} from '../src/main'
+
+import {dropdown, checkbox, saveSection, errors, back} from '../src/main'
 import Vue from 'vue'
 
 Vue.config.productionTip = false;
@@ -8,6 +11,7 @@ Vue.config.productionTip = false;
 let template = `
 <div>
   <errors :errors="errors" />
+  <back @back="onBackClick" />
   <dropdown v-model="dropDownTestVal" @changed="onDropDownChange">
     <div class="label">Send emails:</div>
     <div v-if="showIt" class="option" value="email"> Send email to :</div>
@@ -42,7 +46,7 @@ window.tempObj = {
 new Vue({
   el       : '#app',
   template : template,
-  components:{checkbox, dropdown, saveSection, errors},
+  components:{checkbox, dropdown, saveSection, errors, back},
   data(){
     return window.tempObj
   },
@@ -63,6 +67,9 @@ new Vue({
     },
     onCheckboxCheck(newVal) {
       console.log( `Checkbox value is now : ${newVal}` )
+    },
+    onBackClick(){
+      console.log( "back button clicked" )
     }
   }
 })

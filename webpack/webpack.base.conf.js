@@ -8,9 +8,6 @@ function resolve (dir) {
 }
 
 
-var ShadowCss = `${require.resolve('shadow-icons/webpack/shadow-svg-css-loader.js')}`
-var ShadowJs  = `${require.resolve('shadow-icons/webpack/shadow-svg-js-loader.js')}`
-
 var uniqueStr = Date.now().toString(36)
 
 module.exports = {
@@ -74,13 +71,13 @@ module.exports = {
         test: /\.svg$/,
         loader  : [
           {
-            loader:ShadowJs,
+            loader:`${require.resolve('shadow-icons/webpack/shadow-svg-js-loader.js')}`,
             query:{uniqueStr:uniqueStr}
           },
           "style-loader",
           "css-loader",
           {
-            loader:ShadowCss,
+            loader:`${require.resolve('shadow-icons/webpack/shadow-svg-css-loader.js')}`,
             query:{uniqueStr:uniqueStr}
           },
         ]

@@ -1,13 +1,13 @@
 {
   "name": "lexi",
-  "version": "0.1.11",
+  "version": "0.1.15",
   "description": "Vue replacements for common form elements",
   "author": "Mark Parson <mark@nanobox.io>",
   "private": true,
   "main": "dist/build.js",
   "scripts": {
     "dev": "node webpack/dev-server.js",
-    "dist": "node webpack/build.js"
+    "build": "node webpack/build.js"
   },
   "dependencies": {
     "lodash": "^4.17.4",
