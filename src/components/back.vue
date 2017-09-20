@@ -10,9 +10,10 @@ export default {
 -->
 
 <template lang="pug">
-  .lexi-back(@click="$emit('back')")
-    img.shadow-icon(data-src="lexi-back-x")
-    .txt Back
+  .lexi-back
+    .btn(@click="$emit('back')")
+      img.shadow-icon(data-src="lexi-back-x")
+      .txt Back
 </template>
 
 <!--
@@ -21,10 +22,12 @@ export default {
 
 <style lang="scss">
   $hover-color:#143B50;
-  .lexi-back     {display: flex; align-items: center; justify-content: flex-end; font-size:15px; font-size:$semibold; color:#3F5F6B; font-style: italic; cursor: pointer;
-    .txt    {margin-left:6px; }
-    &:hover {color:$hover-color;
-      svg * {fill:$hover-color}
+  .lexi-back  {display: flex;  justify-content: flex-end; font-size:15px; font-size:$semibold; color:#3F5F6B; font-style: italic;
+    .btn      {cursor: pointer; display: flex; align-items: center; padding:5px 3px;
+      .txt    {margin-left:6px; }
+      &:hover {color:$hover-color;
+        svg * {fill:$hover-color}
+      }
     }
   }
 </style>

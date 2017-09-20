@@ -1,5 +1,4 @@
 require('../lib/assets/core-styles/scss/_base.scss')
-// let x = require('script-loader!shadow-icons/rel/app.js')
 require("script-loader!../node_modules/shadow-icons/rel/app.js")
 
 
@@ -19,20 +18,7 @@ let template = `
     <div class="option" value="email-collaborators"> Send email to all collaborators</div>
   </dropdown>
   <checkbox label="I am a checkbox" label-is-after="true" is-checked="true" @changed="onCheckboxCheck" id="my id" />
-  <save-section @save="onSave" @cancel="onCancel"/>
-  <dropdown v-model="dropDownTestVal2" >
-    <div class="label">Send emails:</div>
-    <div v-if="showIt" class="option" value="email"> Send email to :</div>
-    <div class="option" value="text"> Send text to :</div>
-    <div class="option" value="email-collaborators"> Send email to all collaborators</div>
-  </dropdown>
-  <dropdown v-model="dropDownTestVal3" >
-    <div class="option" value="asdf"> ASDF</div>
-    <div class="label">Send emails:</div>
-    <div v-if="showIt" class="option" value="email"> Send email to :</div>
-    <div class="option" value="text"> Send text to :</div>
-    <div class="option" value="email-collaborators"> Send email to all collaborators</div>
-  </dropdown>
+  <save-section @save="onSave" @cancel="onCancel" saveText="Submit" cancelText="Nevermind" :showCancel="true"/>
 </div>
 `
 window.tempObj = {

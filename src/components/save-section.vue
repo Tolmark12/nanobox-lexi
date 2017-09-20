@@ -1,6 +1,11 @@
 <script>
 export default {
-  name: 'save-section'
+  name: 'save-section',
+  props: {
+    saveText   : { default : "Save",   type:String},
+    cancelText : { default : "Cancel", type:String},
+    showCancel : { default : true,     type:Boolean}
+  }
 }
 </script>
 
@@ -10,8 +15,8 @@ export default {
 
 <template lang="pug">
   .save-section
-    .cancel(@click="$emit('cancel')" ) Cancel
-    .button.lifecycle(@click="$emit('save')") Save
+    .cancel(v-if="showCancel" @click="$emit('cancel')" ) {{ cancelText }}
+    .button.lifecycle(@click="$emit('save')") {{ saveText }}
 </template>
 
 <!--
