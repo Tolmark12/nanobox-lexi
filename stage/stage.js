@@ -4,7 +4,6 @@ require("script-loader!../node_modules/shadow-icons/rel/app.js")
 
 import {dropdown, checkbox, saveSection, errors, back} from '../src/main'
 import Vue from 'vue'
-
 Vue.config.productionTip = false;
 
 let template = `
@@ -18,7 +17,7 @@ let template = `
     <div class="option" value="email-collaborators"> Send email to all collaborators</div>
   </dropdown>
   <checkbox label="I am a checkbox" label-is-after="true" is-checked="true" @changed="onCheckboxCheck" id="my id" />
-  <save-section @save="onSave" @cancel="onCancel" saveText="Submit" cancelText="Nevermind" :showCancel="true"/>
+  <save-section @save="onSave" @cancel="onCancel" saveText="Submit" cancelText="Nevermind" :showCancel="true" :cycling="cycling"/>
 </div>
 `
 window.tempObj = {
@@ -26,7 +25,8 @@ window.tempObj = {
   dropDownTestVal2 : 'text',
   dropDownTestVal3 : 'text',
   errors           : null,
-  showIt           : false
+  showIt           : false,
+  cycling          : false
 }
 
 new Vue({

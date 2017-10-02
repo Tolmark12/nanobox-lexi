@@ -2,9 +2,10 @@
 export default {
   name: 'save-section',
   props: {
-    saveText   : { default : "Save",   type:String},
-    cancelText : { default : "Cancel", type:String},
-    showCancel : { default : true,     type:Boolean}
+    saveText    : { default : "Save",   type:String},
+    cancelText  : { default : "Cancel", type:String},
+    showCancel  : { default : true,     type:Boolean},
+    cycling     : { default : false,    type:Boolean}
   }
 }
 </script>
@@ -16,7 +17,7 @@ export default {
 <template lang="pug">
   .save-section
     .cancel(v-if="showCancel" @click="$emit('cancel')" ) {{ cancelText }}
-    .button.lifecycle(@click="$emit('save')") {{ saveText }}
+    .button.lifecycle(@click="$emit('save')" v-bind:class="{ing:cycling}") {{ saveText }}
 </template>
 
 <!--
