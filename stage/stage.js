@@ -2,7 +2,7 @@ require('../lib/assets/core-styles/scss/_base.scss')
 require("script-loader!../node_modules/shadow-icons/rel/app.js")
 
 
-import {dropdown, checkbox, saveSection, errors, back} from '../src/main'
+import {dropdown, checkbox, saveSection, errors, back, lifecycler} from '../src/main'
 import Vue from 'vue'
 Vue.config.productionTip = false;
 
@@ -32,7 +32,7 @@ window.tempObj = {
 new Vue({
   el       : '#app',
   template : template,
-  components:{checkbox, dropdown, saveSection, errors, back},
+  components:{checkbox, dropdown, saveSection, errors, back, lifecycler},
   data(){
     return window.tempObj
   },
