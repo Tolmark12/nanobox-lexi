@@ -29,7 +29,7 @@ export default {
 <style lang="scss" scoped>
   @import "vars-utils";
   .radio       {position: relative; display: flex; align-items: center; cursor:pointer; padding:2px 2px 2px 0;
-    .circle    {width:20px; height:20px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; margin-right:3px; }
+    .circle    {width:20px; height:20px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; margin-right:8px; }
     .dot       {width:40%; height: 40%; border-radius: 50%; background: white; display: none; }
     &.selected {
       .label   {color:$azul2-darker;}

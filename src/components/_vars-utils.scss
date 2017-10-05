@@ -8,7 +8,7 @@ $azul2-blue:      #1D8ACD;
 $azul2-darker:    #006EAD;
 
 .lexi           {
-  .label        {display:inline-block; position:relative;font-size:16px; font-weight: $semibold; font-style: italic; color:$azul2; padding-left:6px;
+  .label        {display:inline-block; position:relative;font-size:16px; font-weight: $semibold; font-style: italic; color:$azul2;
     &.before    {padding-left:0; padding-right:6px}
   }
   .label        {display: inline-block; white-space: nowrap;}
