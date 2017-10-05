@@ -27,20 +27,22 @@ export default {
 
 <style lang="scss" scoped>
   @import "vars-utils";
-  .checkbox          {display: inline-flex; cursor:pointer; cursor:pointer; align-items: center; padding:3px 0;
-    .checker         {position:relative; width:16px; height:16px; background:$azul2; display: inline-block; border-radius: 2px; margin:0 6px 0 0; }
-    &.checked        {
-      .checker:after {@include checkmark(14px, white, 3px); position:absolute;left:7px; top:-2px; }
+  .checkbox                    {display: inline-flex; cursor:pointer; cursor:pointer; align-items: center; padding:3px 0;
+    .checker                   {position:relative; width:16px; height:16px; background:white; display: inline-block; border-radius: 2px; margin:0 6px 0 0; @include thin-shadow;}
+    &.checked                  {
+      .checker                 {background:$azul2;
+        &:after                {@include checkmark(14px, white, 3px); position:absolute;left:7px; top:-2px; }
+      }
     }
-    &:hover          {
-      .label         {color:#0467CD}
+    &:hover                    {
+      .label                   {color:#0467CD}
     }
-    &.flip           {
-      .checker       {order:3; margin:0 0 0 6px; }
+    &.flip                     {
+      .checker                 {order:3; margin:0 0 0 6px; }
     }
   }
 
-  .lexi-blue{
-    .lexi-ui.checkbox .checker{background:#006EAD; }
+  .lexi-blue                   {
+    .lexi-ui.checkbox .checker {background:#006EAD; }
   }
 </style>

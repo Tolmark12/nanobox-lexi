@@ -1,6 +1,6 @@
 {
   "name": "lexi",
-  "version": "0.1.24",
+  "version": "0.1.25",
   "description": "Vue replacements for common form elements",
   "author": "Mark Parson <mark@nanobox.io>",
   "private": true,
@@ -10,6 +10,7 @@
     "build": "node webpack/build.js"
   },
   "dependencies": {
+    "blueimp-md5": "^2.10.0",
     "lodash": "^4.17.4",
     "shadow-icons": "Tolmark12/shadow-icons-js"
   },

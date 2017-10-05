@@ -1,11 +1,12 @@
 require('./svg/compiled/lexi-svg.svg')
 
 module.exports = {
+  back         : require('./components/back'),
   checkbox     : require('./components/checkbox'),
   dropdown     : require('./components/dropdown'),
-  saveSection  : require('./components/save-section'),
   errors       : require('./components/errors'),
-  back         : require('./components/back'),
+  gravatar     : require('./components/gravatar'),
   lifecycler   : require('./components/lifecycler'),
   radio        : require('./components/radio'),
+  saveSection  : require('./components/save-section'),
 }

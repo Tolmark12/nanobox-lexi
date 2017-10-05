@@ -35,3 +35,7 @@ $azul2-darker:    #006EAD;
   /*Rotate the L 45 degrees to turn it into a checkmark*/
   transform: rotate(45deg);
 }
+
+@mixin thin-shadow(){ box-shadow: 0px 1px 2px rgba(black, 0.1);
+
+}

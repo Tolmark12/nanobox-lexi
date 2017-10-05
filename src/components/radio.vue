@@ -6,6 +6,11 @@ export default {
     onClick() {
       this.$emit('input', this.val)
     }
+  },
+  watch:{
+    value(){
+      this.$emit('changed', this.value)
+    }
   }
 }
 </script>

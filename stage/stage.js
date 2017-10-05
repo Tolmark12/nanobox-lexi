@@ -2,12 +2,13 @@ require('../lib/assets/core-styles/scss/_base.scss')
 require("script-loader!../node_modules/shadow-icons/rel/app.js")
 
 
-import {dropdown, checkbox, saveSection, errors, back, lifecycler, radio} from '../src/main'
+import {dropdown, checkbox, saveSection, errors, back, lifecycler, radio, gravatar} from '../src/main'
 import Vue from 'vue'
 Vue.config.productionTip = false;
 
 let template = `
 <div>
+  <gravatar email="contact@parslee.com" :round="true" :size="50" />
   <errors :errors="errors" />
   <back @back="onBackClick" />
   <dropdown v-model="dropDownTestVal" @changed="onDropDownChange">
@@ -16,11 +17,15 @@ let template = `
     <div class="option" value="text"> Send text to :</div>
     <div class="option" value="email-collaborators"> Send email to all collaborators</div>
   </dropdown>
+  <br/>
+  <br/>
 
   <checkbox :content-is-before="false" v-model="checkbox1" @changed="onCheckboxCheck" >
     <div class="label">I am a checkbox</div>
   </checkbox>
-  <save-section @save="onSave" @cancel="onCancel" saveText="Submit" cancelText="Nevermind" :showCancel="true" :cycling="cycling"/>
+  <br/>
+  <br/>
+  <br/>
 
   <radio v-model="friends" val="blue" >blue</radio>
   <radio v-model="friends" val="red" >red</radio>
@@ -32,6 +37,9 @@ let template = `
   <radio v-model="friends2" val="red" >red</radio>
   <radio v-model="friends2" val="green" >green</radio>
   <radio v-model="friends2" val="black">black</radio>
+
+  <save-section @save="onSave" @cancel="onCancel" saveText="Submit" cancelText="Nevermind" :showCancel="true" :cycling="cycling"/>
+
 </div>
 `
 window.tempObj = {
@@ -47,7 +55,7 @@ window.tempObj = {
 new Vue({
   el       : '#app',
   template : template,
-  components:{checkbox, dropdown, saveSection, errors, back, lifecycler, radio},
+  components:{checkbox, dropdown, saveSection, errors, back, lifecycler, radio, gravatar},
   data(){
     return window.tempObj
   },
