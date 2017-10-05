@@ -17,7 +17,7 @@ let template = `
     <div class="option" value="email-collaborators"> Send email to all collaborators</div>
   </dropdown>
 
-  <checkbox label="I am a checkbox" label-is-after="true" v-model="checkbox1"  />
+  <checkbox label="I am a checkbox" label-is-after="true" v-model="checkbox1" @changed="onCheckboxCheck" />
   <save-section @save="onSave" @cancel="onCancel" saveText="Submit" cancelText="Nevermind" :showCancel="true" :cycling="cycling"/>
 
   <radio v-model="friends" val="blue" >blue</radio>

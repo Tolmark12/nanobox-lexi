@@ -2,12 +2,8 @@
 export default {
   name: 'checkbox',
   props: ['label', 'labelIsAfter', 'id', 'value'],
-  data: function(){
-    return {checked:this.isChecked}
-  },
   methods:{
     onClick() {
-      this.checked = !this.checked
       this.$emit('changed', !this.value, this.id)
       this.$emit('input', !this.value)
     }
