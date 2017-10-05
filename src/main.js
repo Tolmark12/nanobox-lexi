@@ -7,4 +7,5 @@ module.exports = {
   errors       : require('./components/errors'),
   back         : require('./components/back'),
   lifecycler   : require('./components/lifecycler'),
+  radio        : require('./components/radio'),
 }

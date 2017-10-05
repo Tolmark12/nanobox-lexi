@@ -1,17 +1,16 @@
 <script type="text/babel">
 export default {
   name: 'checkbox',
-  props: ['label', 'labelIsAfter', 'is-checked', 'id'],
+  props: ['label', 'labelIsAfter', 'id', 'value'],
   data: function(){
     return {checked:this.isChecked}
   },
   methods:{
     onClick() {
       this.checked = !this.checked
-      this.$emit('changed', this.checked, this.id)
-    },
-    check()   {this.checked = true},
-    unCheck() {this.checked = false}
+      this.$emit('changed', !this.value, this.id)
+      this.$emit('input', !this.value)
+    }
   }
 }
 </script>
@@ -21,7 +20,7 @@ export default {
 -->
 
 <template lang="pug">
-  .checkbox.lexi(v-bind:class="{ 'label-before': true, checked:checked }" v-on:click="onClick" )
+  .checkbox.lexi(v-bind:class="{ 'label-before': true, checked:this.value }" v-on:click="onClick" )
     .checker
     .label {{ label }}
 </template>
