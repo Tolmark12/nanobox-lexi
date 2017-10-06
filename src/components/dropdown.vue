@@ -1,17 +1,23 @@
 <script type="text/babel">
 export default {
   name: 'dropdown',
-  props: ['active-item', 'default', 'value'],
+  props: {
+    'active-item'  : {type:String},
+    'value'        : {type:String},
+    'hide-trigger' : {type:Boolean, default:false},
+    'x-mod'        : {type:Number,  default:0},
+    'y-mod'        : {type:Number,  default:0},
+  },
   data() {
     return {
-      isOpen : false,
-      currentItemHasBeenChecked: false
+      isOpen                    : false,
+      currentItemHasBeenChecked : false
     }
   },
 
   methods: {
     // ------------------------------------ Events
-    onMouseDown() {
+    open() {
       this.openTime = Date.now()
       this.openDropDown()
       window.addEventListener('mouseup', this.onMouseUp)
@@ -68,19 +74,18 @@ export default {
       this.addItemHovers() // Add hover listeners
       this.checkItemById() // check the current item
       let top
-      let $content = this.$refs['content']
-      let $trigger = this.$refs['trigger']
+      let $content = this.$refs.content
 
       let dropdownHeight = $content.clientHeight
-      let pos            = $trigger.getBoundingClientRect()
+      let pos            = this.$el.getBoundingClientRect()
       let winHeight      = window.innerHeight
                         || document.documentElement.clientHeight
                         || document.body.clientHeight;
 
-      if (pos.top + dropdownHeight > winHeight)
+      top = pos.top + this.yMod
+
+      if (top + dropdownHeight > winHeight)
         top = winHeight - dropdownHeight
-      else
-        top = pos.top
 
       // If page is smaller than dropdown
       if (winHeight < dropdownHeight)
@@ -88,11 +93,13 @@ export default {
         $content.style.height   = winHeight
         $content.style.overflow = 'scroll'
 
-      $content.style.top     = top + "px";
-      $content.style.left    = pos.left + "px";
+      $content.style.top     = `${top}px`;
+      $content.style.left    = `${pos.left + this.xMod}px`;
       $content.style.opacity = "1";
     },
+
     // ------------------------------------ Helpers
+
     addItemHovers() {
       let $els = this.$refs['content'].getElementsByClassName('option')
       for ( let $el of $els ){
@@ -133,8 +140,14 @@ export default {
         }
       }
       return txt
-    }
+    },
   },
+  watch : {
+    showOn(val){
+      if(val)
+        this.open()
+    }
+  }
 }
 </script>
 
@@ -144,7 +157,7 @@ export default {
 
 <template lang="pug">
   .lexi.drop-down
-    .trigger(v-on:mousedown="onMouseDown" ref="trigger" )
+    .trigger(v-on:mousedown="open" ref="trigger" v-if="!hideTrigger" )
       .txt {{ getItemText(value) }}
     .drop-content(v-if="isOpen" ref="content")
       slot

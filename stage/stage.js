@@ -11,11 +11,18 @@ let template = `
   <gravatar email="contact@parslee.com" :round="true" :size="50" />
   <errors :errors="errors" />
   <back @back="onBackClick" />
-  <dropdown v-model="dropDownTestVal" @changed="onDropDownChange">
+  <dropdown v-model="dropdown1" @changed="onDropDownChange">
     <div class="label">Send emails:</div>
     <div v-if="showIt" class="option" value="email"> Send email to :</div>
     <div class="option" value="text"> Send text to :</div>
     <div class="option" value="email-collaborators"> Send email to all collaborators</div>
+  </dropdown>
+  <br/>
+  <br/>
+  <a @click="$refs.dd2.open()">hidden dropdown trigger</a>
+  <dropdown v-model="dropdown2" :hide-trigger="true" ref="dd2" :y-mod="-20" :x-mod="10">
+    <div class="option" value="a">Option 1</div>
+    <div class="option" value="b">Option 2</div>
   </dropdown>
   <br/>
   <br/>
@@ -43,13 +50,15 @@ let template = `
 </div>
 `
 window.tempObj = {
-  dropDownTestVal  : 'text',
-  checkbox1        : true,
-  errors           : null,
-  showIt           : false,
-  cycling          : false,
-  friends          : "blue",
-  friends2          : "black",
+  dropdown1 : 'text',
+  dropdown2 : 'a',
+  showD2    : false,
+  checkbox1 : true,
+  errors    : null,
+  showIt    : false,
+  cycling   : false,
+  friends   : "blue",
+  friends2  : "black",
 }
 
 new Vue({
