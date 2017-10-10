@@ -14,7 +14,6 @@ export default {
       currentItemHasBeenChecked : false
     }
   },
-
   methods: {
     // ------------------------------------ Events
     open() {
@@ -146,7 +145,9 @@ export default {
     showOn(val){
       if(val)
         this.open()
-    }
+    },
+    // Emit a change event anytime the value changes
+    value(newVal){ this.$emit('change', newVal) }
   }
 }
 </script>
@@ -169,29 +170,29 @@ export default {
 
 <style lang="scss" scoped>
   @import "vars-utils";
-  .lexi.drop-down{
-    .trigger {position:relative; display: inline-flex; color: $azul2; font-style: italic; border-bottom: 3px solid $azul2; padding-bottom: 3px; cursor: pointer; font-size:16px; max-height: 30px;
-      .txt                     {margin-right:10px; }
-      &:after                  {margin-top: 7px; display: block; content:""; border-left: 7px solid transparent; border-right: 7px solid transparent; border-top: 7px solid $azul2; margin-left: auto; transform: scaleX(0.8); }
-      &.white                  {border-bottom:none; background:white; padding:8px 12px; max-height: initial;}
-      &.autoscale              {min-width: initial !important;}
+  .lexi.drop-down          {
+    .trigger               {position:relative; display: inline-flex; color: $azul2; font-style: italic; border-bottom: 3px solid $azul2; padding-bottom: 3px; cursor: pointer; font-size:16px; max-height: 30px;
+      .txt                 {margin-right:10px; }
+      &:after              {margin-top: 7px; display: block; content:""; border-left: 7px solid transparent; border-right: 7px solid transparent; border-top: 7px solid $azul2; margin-left: auto; transform: scaleX(0.8); }
+      &.white              {border-bottom:none; background:white; padding:8px 12px; max-height: initial;}
+      &.autoscale          {min-width: initial !important;}
     }
 
-    .drop-content              {user-select: none; background:white; position: fixed; left: 20px; @include drop-shadow(0, 1px, 6px, #AAA); z-index: 1000; opacity:0;
-      .checkmark               {display:none; }
-      .label, .option          {border-bottom: solid #F1EFEF 1px; padding: 4px 16px 4px 22px;
-        .checkmark             {display:block; position:absolute; left:6px; top:3px;  }
+    .drop-content          {user-select: none; background:white; position: fixed; left: 20px; @include drop-shadow(0, 1px, 6px, #AAA); z-index: 1000; opacity:0;
+      .checkmark           {display:none; }
+      .label, .option      {border-bottom: solid #F1EFEF 1px; padding: 4px 16px 4px 22px;
+        .checkmark         {display:block; position:absolute; left:6px; top:3px;  }
       }
-      .label                   {color:#B5BFC7; font-size:12px; padding-left:14px; width:100%; }
-      .option                  {position:relative; color: $azul2; font-weight:$semibold; font-size: 16px; font-style: italic; cursor:pointer;
-        &.hover                {background: $azul2; color: white;
-          &.checked:before     {border-color:white; }
+      .label               {color:#B5BFC7; font-size:12px; padding-left:14px; width:100%; }
+      .option              {position:relative; color: $azul2; font-weight:$semibold; font-size: 16px; font-style: italic; cursor:pointer;
+        &.hover            {background: $azul2; color: white;
+          &.checked:before {border-color:white; }
         }
-        &.clicked              {background: #53F0FF;  }
-        &.checked              {
-          &:before             {position:absolute; left:9px; top:8px; @include checkmark; }
+        &.clicked          {background: #53F0FF;  }
+        &.checked          {
+          &:before         {position:absolute; left:9px; top:8px; @include checkmark; }
         }
-        &.disabled             {opacity:0.5; pointer-events: none; }
+        &.disabled         {opacity:0.5; pointer-events: none; }
       }
     }
   }
