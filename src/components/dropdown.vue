@@ -31,7 +31,7 @@ export default {
       if( this.$el.contains(e.target) ){
         if( e.target.classList.contains('option') ){
           this.$emit('input', e.target.getAttribute('value'))
-          this.$emit('changed', e.target.getAttribute('value'))
+          this.$emit('change', e.target.getAttribute('value'))
         }
       }
 
@@ -146,8 +146,6 @@ export default {
       if(val)
         this.open()
     },
-    // Emit a change event anytime the value changes
-    value(newVal){ this.$emit('change', newVal) }
   }
 }
 </script>

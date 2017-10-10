@@ -11,7 +11,7 @@ let template = `
   <gravatar email="contact@parslee.com" :round="true" :size="50" />
   <errors :errors="errors" />
   <back @back="onBackClick" />
-  <dropdown v-model="dropdown1" @changed="onDropDownChange">
+  <dropdown v-model="dropdown1" @change="onDropDownChange">
     <div class="label">Send emails:</div>
     <div v-if="showIt" class="option" value="email"> Send email to :</div>
     <div class="option" value="text"> Send text to :</div>
