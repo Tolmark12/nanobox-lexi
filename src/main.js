@@ -1,7 +1,8 @@
 require('./svg/compiled/lexi-svg.svg')
 
 module.exports = {
-  back         : require('./components/back'),
+  x            : require('./components/x'),
+  add          : require('./components/add'),
   checkbox     : require('./components/checkbox'),
   dropdown     : require('./components/dropdown'),
   errors       : require('./components/errors'),

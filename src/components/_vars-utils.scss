@@ -36,6 +36,45 @@ $azul2-darker:    #006EAD;
   transform: rotate(45deg);
 }
 
-@mixin thin-shadow(){ box-shadow: 0px 1px 2px rgba(black, 0.1);
+@mixin thin-shadow(){ box-shadow: 0px 1px 2px rgba(black, 0.1);}
 
+@mixin btn-style{font-size:15px; font-size:$semibold; color:#3F5F6B; font-style: italic;}
+
+@mixin cross($size:20px, $line-width:2px, $color:#4D6A73){position: relative;
+  width:$size;
+  height:$size;
+  &:before, &:after{
+    left: $size/2;
+    position: absolute;
+    content          : '';
+    height           : $size;
+    width            : $line-width;
+    background-color : $color;
+  }
+  &:before{transform: rotate(45deg);}
+  &:after {transform: rotate(-45deg);}
+}
+
+@mixin plus($size:16px, $line-width:2px, $color:#4D6A73){
+  &:before,
+  &:after {
+     content: "";
+     position: absolute;
+     background-color: $color;
+     top: 50%;
+     left:50%;
+     transform: translate(-50%, -50%);
+   }
+
+   /* Vertical line */
+   &:before{
+     width: $line-width;
+     height: $size;
+   }
+
+   /* horizontal line */
+   &:after{
+     width: $size;
+     height: $line-width;
+   }
 }

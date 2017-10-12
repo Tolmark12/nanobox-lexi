@@ -2,15 +2,31 @@ require('../lib/assets/core-styles/scss/_base.scss')
 require("script-loader!../node_modules/shadow-icons/rel/app.js")
 
 
-import {dropdown, checkbox, saveSection, errors, back, lifecycler, radio, gravatar} from '../src/main'
+import {dropdown, checkbox, saveSection, errors, x, lifecycler, radio, gravatar, add} from '../src/main'
 import Vue from 'vue'
 Vue.config.productionTip = false;
 
 let template = `
 <div>
-  <gravatar email="contact@parslee.com" :round="true" :size="50" />
   <errors :errors="errors" />
-  <back @back="onBackClick" />
+  <add/>
+  <br/>
+  <add txt="Hello" />
+  <br/>
+  <add txt="Add new item" class="circle"/>
+  <br/>
+  <add txt="Add new item" class="circle white"/>
+  <br/>
+  <add txt="Add new item" class="hex"/>
+  <br/>
+  <add txt="Add new item" class="circle white small blue"/>
+  <br/>
+  <x @click="onBackClick" />
+  <br/>
+  <x @click="onBackClick" txt="Cancel"/>
+  <br/>
+  <x @click="onBackClick" txt="Back" class="stretch"/>
+  <gravatar email="contact@parslee.com" :round="true" :size="50" />
   <dropdown v-model="dropdown1" @change="onDropDownChange">
     <div class="label">Send emails:</div>
     <div v-if="showIt" class="option" value="email"> Send email to :</div>
@@ -46,7 +62,6 @@ let template = `
   <radio v-model="friends2" val="black">black</radio>
 
   <save-section @save="onSave" @cancel="onCancel" saveText="Submit" cancelText="Nevermind" :showCancel="true" :cycling="cycling"/>
-
 </div>
 `
 window.tempObj = {
@@ -64,7 +79,7 @@ window.tempObj = {
 new Vue({
   el       : '#app',
   template : template,
-  components:{checkbox, dropdown, saveSection, errors, back, lifecycler, radio, gravatar},
+  components:{checkbox, dropdown, saveSection, errors, x, lifecycler, radio, gravatar, add},
   data(){
     return window.tempObj
   },
@@ -87,7 +102,7 @@ new Vue({
       console.log( `Checkbox value is now : ${newVal}` )
     },
     onBackClick(){
-      console.log( "back button clicked" )
+      console.log( "x button clicked" )
     },
     onRadioChange(val){
       console.log( `radio has changed to ${val}` )
