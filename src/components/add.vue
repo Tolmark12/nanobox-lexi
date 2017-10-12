@@ -12,10 +12,11 @@ export default {
 -->
 
 <template lang="pug">
-  .add
+  .add(@click="$emit('click')")
     .bg
       .plus
-    .txt(v-if="txt != null" ) {{ txt }}
+    .txt(v-if="!!$slots.default")
+      slot
 </template>
 
 <!--

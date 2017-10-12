@@ -9,23 +9,23 @@ Vue.config.productionTip = false;
 let template = `
 <div>
   <errors :errors="errors" />
-  <add/>
+  <add @click="onAddClick"/>
   <br/>
-  <add txt="Hello" />
+  <add @click="onAddClick">Hello</add>
   <br/>
-  <add txt="Add new item" class="circle"/>
+  <add @click="onAddClick" class="circle">Add new item</add>
   <br/>
-  <add txt="Add new item" class="circle white"/>
+  <add @click="onAddClick" class="circle white">Add new item</add>
   <br/>
-  <add txt="Add new item" class="hex"/>
+  <add @click="onAddClick" class="hex">Add new item</add>
   <br/>
-  <add txt="Add new item" class="circle white small blue"/>
+  <add @click="onAddClick" class="circle white small blue">Add new item</add>
   <br/>
   <x @click="onBackClick" />
   <br/>
-  <x @click="onBackClick" txt="Cancel"/>
+  <x @click="onBackClick">Cancel</x>
   <br/>
-  <x @click="onBackClick" txt="Back" class="stretch"/>
+  <x @click="onBackClick" class="stretch">Back</x>
   <gravatar email="contact@parslee.com" :round="true" :size="50" />
   <dropdown v-model="dropdown1" @change="onDropDownChange">
     <div class="label">Send emails:</div>
@@ -106,6 +106,9 @@ new Vue({
     },
     onRadioChange(val){
       console.log( `radio has changed to ${val}` )
+    },
+    onAddClick(){
+      console.log( "Add button clicked" )
     }
   }
 })

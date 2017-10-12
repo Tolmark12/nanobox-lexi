@@ -12,10 +12,11 @@ export default {
 -->
 
 <template lang="pug">
-  .lexi-back
+  .x(@click="$emit('click')")
     .btn
       .cross
-      .txt(v-if="txt != null" ) {{ txt }}
+      .txt(v-if="!!$slots.default")
+        slot
 </template>
 
 <!--
@@ -26,7 +27,7 @@ export default {
   @import "vars-utils";
   $hover-color:#143B50;
 
-  .lexi-back  {display:inline-flex;
+  .x  {display:inline-flex;
     .cross    {@include cross();}
     .txt      {margin-left:6px; @include btn-style()}
     .btn      {cursor: pointer; display: flex; align-items: center; padding:3px 3px;
