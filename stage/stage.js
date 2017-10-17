@@ -11,6 +11,8 @@ let template = `
   <errors :errors="errors" />
   <add @click="onAddClick"/>
   <br/>
+  <add @click="onAddClick" class="small blue"/>
+  <br/>
   <add @click="onAddClick">Hello</add>
   <br/>
   <add @click="onAddClick" class="circle">Add new item</add>

@@ -39,11 +39,21 @@ export default {
         &:before     {background: $blue}
       }
     }
-    &.small          {
-      .txt           {font-size:13px; }
+    &.small        {
+      .txt         {font-size:13px; }
+      .bg          {width:22px; height:22px;
+        .plus      {
+          &:after  {width:12px; }
+          &:before {height:12px;  }
+        }
+      }
     }
     &.blue           {
-      .txt           {color:#11A7ED;}
+      .txt           {color:$blue;}
+      .plus          {
+        &:before,
+        &:after      {background-color:$blue ;}
+      }
     }
     &.hex            {
       .txt           {@include caps($blue, 14px); font-style: normal; margin-left:15px; }
@@ -80,12 +90,7 @@ export default {
         }
       }
       &.small        {
-        .bg          {width:22px; height:22px;
-          .plus      {
-            &:after  {width:12px; }
-            &:before {height:12px;  }
-          }
-        }
+        .bg          {width:22px; height:22px;}
       }
     }
   }
