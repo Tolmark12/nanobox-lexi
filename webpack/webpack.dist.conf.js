@@ -13,6 +13,7 @@ module.exports        = merge(baseWebpackConfig, {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
   },
   externals:{
+    vue : 'vue'
   },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
