@@ -25,5 +25,6 @@ export default {
     &.success       {pointer-events: none; color:#00B463; background:white; }
     &.disabled      {opacity:0.3; cursor:not-allowed; pointer-events: none;}
     &.ing           {padding-left:12px;}
+    &:hover         {background: #026ED2;}
   }
 </style>

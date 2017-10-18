@@ -1,6 +1,6 @@
 {
   "name": "lexi",
-  "version": "0.1.33",
+  "version": "0.1.34",
   "description": "Vue replacements for common form elements",
   "author": "Mark Parson <mark@nanobox.io>",
   "private": true,
