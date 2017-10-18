@@ -43,7 +43,7 @@ $azul2-darker:    #006EAD;
 @mixin cross($size:20px, $line-width:2px, $color:#4D6A73){position: relative;
   width:$size;
   height:$size;
-  &:before, &:after{
+  .before, .after{
     left: $size/2;
     position: absolute;
     content          : '';
@@ -51,8 +51,8 @@ $azul2-darker:    #006EAD;
     width            : $line-width;
     background-color : $color;
   }
-  &:before{transform: rotate(45deg);}
-  &:after {transform: rotate(-45deg);}
+  .before{transform: rotate(45deg);}
+  .after {transform: rotate(-45deg);}
 }
 
 @mixin plus($size:16px, $line-width:2px, $color:#4D6A73){

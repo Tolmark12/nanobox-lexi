@@ -12,7 +12,7 @@ export default {
 -->
 
 <template lang="pug">
-  .add(@click="$emit('click')")
+  .lexi-add(@click="$emit('click')")
     .bg
       .plus
     .txt(v-if="!!$slots.default")
@@ -23,10 +23,10 @@ export default {
   ***** C S S *****
 -->
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "vars-utils";
   $blue : #11A7ED;
-  .add               {display: inline-flex; align-items: center; cursor:pointer;
+  .lexi-add          {display: inline-flex; align-items: center; cursor:pointer;
     .txt             {margin-left:6px; @include btn-style()}
     .bg              {position:relative; width:18px; height:18px;}
     .plus            {@include plus;

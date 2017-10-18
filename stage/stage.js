@@ -25,6 +25,10 @@ let template = `
   <br/>
   <x @click="onBackClick" />
   <br/>
+  <x @click="onBackClick" size="12" line-width="2" hover="#009AD2"/>
+  <br/>
+  <x @click="onBackClick" size="12" line-width="1" color='#CC0087'/>
+  <br/>
   <x @click="onBackClick">Cancel</x>
   <br/>
   <x @click="onBackClick" class="stretch">Back</x>
