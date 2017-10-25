@@ -10,6 +10,7 @@ export default {
       // outer container, lock its width to the current width
       // before we transition it out as positioned absolute
       el.style.width = `${el.offsetWidth}px`
+      el.style.height = `${el.offsetHeight}px`
     },
   }
 }
