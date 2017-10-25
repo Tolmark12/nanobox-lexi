@@ -6,6 +6,7 @@ module.exports = {
   checkbox     : require('./components/checkbox'),
   dropdown     : require('./components/dropdown'),
   errors       : require('./components/errors'),
+  flux         : require('./components/flux'),
   gravatar     : require('./components/gravatar'),
   lifecycler   : require('./components/lifecycler'),
   radio        : require('./components/radio'),
