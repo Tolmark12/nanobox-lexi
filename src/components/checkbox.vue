@@ -4,8 +4,9 @@ export default {
   props: ['contentIsBefore', 'id', 'value'],
   methods:{
     onClick() {
+      this.$emit('change',  !this.value, this.id)
       this.$emit('changed', !this.value, this.id)
-      this.$emit('input', !this.value)
+      this.$emit('input',   !this.value)
     }
   }
 }
