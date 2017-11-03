@@ -49,7 +49,7 @@ let template = `
   <br/>
   <br/>
 
-  <checkbox :content-is-before="false" v-model="checkbox1" @changed="onCheckboxCheck" >
+  <checkbox :content-is-before="false" v-model="checkbox1" @change="onCheckboxCheck" >
     <div class="label">I am a checkbox</div>
   </checkbox>
   <br/>

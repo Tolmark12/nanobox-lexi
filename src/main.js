@@ -11,4 +11,5 @@ module.exports = {
   lifecycler   : require('./components/lifecycler'),
   radio        : require('./components/radio'),
   saveSection  : require('./components/save-section'),
+  xvg          : require('./components/xvg'),
 }
