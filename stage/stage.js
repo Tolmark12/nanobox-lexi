@@ -21,6 +21,8 @@ let template = `
   <br/>
   <add @click="onAddClick" class="hex">Add new item</add>
   <br/>
+  <add @click="onAddClick" class="hex medium">Add new item</add>
+  <br/>
   <add @click="onAddClick" class="circle white small blue">Add new item</add>
   <br/>
   <x @click="onBackClick" />

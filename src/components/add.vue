@@ -72,6 +72,18 @@ export default {
       &:hover        {
         .txt         {color:#0070C2}
       }
+      &.medium        {
+        .bg           {width: 40px; height: 23.1px; margin: 18px 0;
+          &:before,
+          &:after     {border-left: 20px solid transparent; border-right: 20px solid transparent;}
+          &:before    {border-bottom: 11.54px solid white;}
+          &:after     {border-top: 11.54px solid white;}
+        }
+        .plus          {
+          &:before     {height:24px;}
+          &:after      {width:24px; }
+        }
+      }
     }
     &.circle         {
       .txt           {margin-left:10px; }
