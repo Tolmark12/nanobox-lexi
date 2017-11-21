@@ -31,7 +31,7 @@ export default {
 
 <style lang="scss" scoped>
   .gravatar {
-    img        {margin-right:15px; }
+    // img        {margin-right:15px; }
     &.round    {
       img      {border-radius:50%}
     }
