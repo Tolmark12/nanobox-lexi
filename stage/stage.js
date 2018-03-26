@@ -69,7 +69,7 @@ let template = `
 
   <radio v-model="friends2" val="blue" @changed="onRadioChange">blue</radio>
   <radio v-model="friends2" val="red" >red</radio>
-  <radio v-model="friends2" val="green" >green</radio>
+  <radio v-model="friends2" val="green" >green has a really long label that may get in the way</radio>
   <radio v-model="friends2" val="black">black</radio>
 
   <save-section @save="onSave" @cancel="onCancel" saveText="Submit" cancelText="Nevermind" :showCancel="true" :cycling="cycling"/>
