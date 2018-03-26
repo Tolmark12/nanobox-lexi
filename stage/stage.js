@@ -54,6 +54,9 @@ let template = `
   <checkbox :content-is-before="false" v-model="checkbox1" @change="onCheckboxCheck" >
     <div class="label">I am a checkbox</div>
   </checkbox>
+  <checkbox :content-is-before="false" v-model="checkbox2" @change="onCheckboxCheck" >
+    <div class="label">I am a checkbox with a really long label for testing wrapping to a second line</div>
+  </checkbox>
   <br/>
   <br/>
   <br/>
@@ -77,6 +80,7 @@ window.tempObj = {
   dropdown2 : 'a',
   showD2    : false,
   checkbox1 : true,
+  checkbox2 : true,
   errors    : null,
   showIt    : false,
   cycling   : false,

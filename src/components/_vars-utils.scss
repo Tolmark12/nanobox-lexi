@@ -11,7 +11,7 @@ $azul2-darker:    #006EAD;
   .label        {display:inline-block; position:relative;font-size:16px; font-weight: $semibold; font-style: italic; color:$azul2;
     &.before    {padding-left:0; padding-right:6px}
   }
-  .label        {display: inline-block; white-space: nowrap;}
+  .label        {}
 }
 .lexi-blue      {
   .label {color:$azul2-darker}

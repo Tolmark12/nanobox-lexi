@@ -28,8 +28,8 @@ export default {
 
 <style lang="scss" scoped>
   @import "vars-utils";
-  .checkbox                    {display: inline-flex; cursor:pointer; cursor:pointer; align-items: center; padding:3px 0;
-    .checker                   {position:relative; width:16px; height:16px; background:white; display: inline-block; border-radius: 2px; margin:0 6px 0 0; @include thin-shadow;}
+  .checkbox                    {display: inline-flex; cursor:pointer; cursor:pointer;  padding:3px 0;
+    .checker                   {position:relative; min-width:16px; height:16px; background:white; display: inline-block; border-radius: 2px; margin:2px 6px 0 0; @include thin-shadow;}
     &.checked                  {
       .checker                 {background:$azul2;
         &:after                {@include checkmark(14px, white, 3px); position:absolute;left:7px; top:-2px; }
