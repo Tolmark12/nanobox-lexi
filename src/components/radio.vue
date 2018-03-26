@@ -31,7 +31,7 @@ export default {
   ***** C S S *****
 -->
 
-<style lang="scss" scoped>
+<style lang="scss" >
   @import "vars-utils";
   .radio       {position: relative; display: flex;  cursor:pointer; padding:2px 2px 2px 0;
     .circle    {min-width:20px; height:20px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; margin-right:8px; @include thin-shadow;}
