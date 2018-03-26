@@ -33,7 +33,7 @@ export default {
 
 <style lang="scss" >
   @import "vars-utils";
-  .radio       {position: relative; display: flex;  cursor:pointer; padding:2px 2px 2px 0;
+  .radio.lexi  {position: relative; display: flex;  cursor:pointer; padding:2px 2px 2px 0;
     .circle    {min-width:20px; height:20px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; margin-right:8px; @include thin-shadow;}
     .dot       {width:40%; height: 40%; border-radius: 50%; background: white; display: none; }
     &.selected {

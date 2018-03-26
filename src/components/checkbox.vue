@@ -26,9 +26,9 @@ export default {
   ***** C S S *****
 -->
 
-<style lang="scss" scoped>
+<style lang="scss" >
   @import "vars-utils";
-  .checkbox                    {display: inline-flex; cursor:pointer; cursor:pointer;  padding:3px 0;
+  .checkbox.lexi               {display: inline-flex; cursor:pointer; cursor:pointer;  padding:3px 0;
     .checker                   {position:relative; min-width:16px; height:16px; background:white; display: inline-block; border-radius: 2px; margin:2px 6px 0 0; @include thin-shadow;}
     &.checked                  {
       .checker                 {background:$azul2;
